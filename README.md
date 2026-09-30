@@ -48,7 +48,7 @@ A full-stack Django web application that predicts sneaker prices using machine l
 
 1. **Clone the repository**
 ```bash
-   git clone https://github.com/yourusername/sneaker-price-prediction.git
+   git clone https://github.com/007-SARANG/Sneaker-price-prediction.git
    cd sneaker-price-prediction/price\ prediction
    ```
 
