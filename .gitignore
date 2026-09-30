@@ -9,3 +9,8 @@ venv/
 .env.*
 !.env.example
 .DS_Store
+# Generated files
+node_modules/
+**/dist/
+__pycache__/
+*.py[cod]
