@@ -95,12 +95,12 @@ A full-stack Django web application that predicts sneaker prices using machine l
 ## 📊 Machine Learning Model
 
 * **Dataset**: [StockX Sneaker Data 2019 (Kaggle)](https://www.kaggle.com/datasets/stockx/stockx-sneaker-data-2019)
-* **Model Used**: Linear Regression / Random Forest (based on training accuracy)
-* **Libraries**: Scikit-learn, Pandas, NumPy
+* **Model Used**: `RandomForestRegressor`, trained in `users/views.py`
 * **Target Variable**: `Sale Price`
-* **Features**: `Brand`, `Model`, `Release Date`, `Retail Price`, `Condition`, `Region`
+* **Features used by the implementation**: order date, brand, sneaker name, retail price, release date, shoe size, and buyer region
+* **Evaluation shown by the app**: MAE, MSE, and RMSE from an 80/20 random split; split and forest seeds are fixed to 42
 
-📁 Model training scripts are located in a separate Jupyter Notebook or `ml_model/` folder (if added).
+The model is fit from the uploaded/local CSV during each training or prediction request; a trained model is not persisted. The split is random rather than time-based, so these metrics are an exploratory holdout result and do not establish performance on future market data. The repository does not include a separate `ml_model/` training package.
 
 
 

@@ -114,7 +114,7 @@ def machinelearning(request):
     y = df.Sale_Price
     #X = X.columns.astype(str)
     print(X.columns)
-    X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.2)
+    X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.2, random_state=42)
     object_cols = ['Sneaker_Name', 'Buyer', 'Brand']
     # Apply one-hot encoder to each column with categorical data
     OH_encoder = OneHotEncoder(handle_unknown='ignore', sparse=False)
@@ -137,7 +137,7 @@ def machinelearning(request):
     OH_X_train = pd.concat([num_X_train, OH_cols_train], axis=1)
     OH_X_valid = pd.concat([num_X_valid, OH_cols_valid], axis=1)
 
-    lm = RandomForestRegressor()
+    lm = RandomForestRegressor(random_state=42)
     lm.fit(OH_X_train,y_train)
     predictions = lm.predict(OH_X_valid)
     MAE = metrics.mean_absolute_error(y_valid, predictions)
@@ -194,7 +194,7 @@ def prediction(request):
         y = df.Sale_Price
         #X = X.columns.astype(str)
         print(X.columns)
-        X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.2)
+        X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.2, random_state=42)
         object_cols = ['Sneaker_Name', 'Buyer', 'Brand']
         # Apply one-hot encoder to each column with categorical data
         OH_encoder = OneHotEncoder(handle_unknown='ignore', sparse=False)
@@ -217,7 +217,7 @@ def prediction(request):
         OH_X_train = pd.concat([num_X_train, OH_cols_train], axis=1)
         OH_X_valid = pd.concat([num_X_valid, OH_cols_valid], axis=1)
 
-        lm = RandomForestRegressor()
+        lm = RandomForestRegressor(random_state=42)
         lm.fit(OH_X_train,y_train)
         test_set = [Order_date, Brand, Sneaker_Name, Retail_Price, Release_Date, Shoe_Size, Buyer]
         print('test_set',test_set)
